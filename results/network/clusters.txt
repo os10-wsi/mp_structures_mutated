@@ -1,0 +1,15 @@
+cluster 1 (22): AMF1, AQR1, FEN2, GAL2, GEX2, GIT1, HXT1, HXT2, HXT3, HXT5, HXT7, ITR1, ITR2, JEN1, PHO84, QDR2, QDR3, RGT2, SNF3, STL1, TNA1, TPO3
+cluster 2 (13): AGP1, AGP2, BAP2, BOR1, CAN1, DIP5, DUR3, FUR4, HIP1, HNM1, LYP1, MUP1, PUT4
+cluster 3 (4): FMP45, PUN1, SUR7, YNL194C
+cluster 4 (3): ADY2, ATO2, ATO3
+cluster 5 (3): IZH2, RSB1, RTA1
+cluster 6 (2): KCH1, PRM6
+cluster 7 (1): AQY1
+cluster 8 (1): SFK1
+cluster 9 (1): FET3
+cluster 10 (1): FET4
+cluster 11 (1): MEP2
+cluster 12 (1): CTR1
+cluster 13 (1): GUP1
+cluster 14 (1): RCH1
+cluster 15 (1): FEX1

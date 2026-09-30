@@ -44,8 +44,8 @@ search directions, self-hits are removed, and the default cutoff is
   *ForceAtlas 2* with *Prevent Overlap* ticked. The file already stores
   colours, sizes and a starting layout.
 - **Python:** the script runs the same two steps with networkx
-  (`spring_layout` = Fruchterman-Reingold, then `forceatlas2_layout` with
-  node sizes to prevent overlap) and saves the figure.
+  (`spring_layout` = Fruchterman-Reingold, then `forceatlas2_layout`, then
+  a pass that pushes overlapping nodes apart) and saves the figure.
 
 ### Structure gallery
 PyMOL cartoon coloured with `spectrum count, rainbow`: blue at the N-terminus,
@@ -56,3 +56,22 @@ disordered tails can make a model look small in its panel; use
 `--min-plddt 50` to hide low-confidence termini.
 
 Set `MP_DATA` / `MP_RESULTS` to use other input and output directories.
+
+## Results (run 2026-09-30, AlphaFold DB + UniProt)
+
+- **Lengths:** 263–884 aa, median 568 aa (`length_histogram`).
+- **Topologies:** there are 18 distinct classes and 13 distinct TM counts
+  (`topology_classes`, `topology_map`). The largest class is 12 TM, N-in/C-in,
+  with 24 proteins (most MFS and APC transporters). Next come 11 TM,
+  N-out/C-in (6), then five classes of 3 proteins each. These are UniProt's
+  sequence-based annotations: an MFS protein listed with 11 or 13 TM probably
+  has one helix missed or split.
+- **Structural similarity network** (prob ≥ 0.5, 310 edges, 15 components):
+  - MFS: Sugar_tr + MFS_1, 22 proteins.
+  - LeuT fold: APC permeases + DUR3 + FUR4, with BOR1 joined by a single
+    weak edge, 13 proteins.
+  - Smaller groups: SUR7 (4), Gpr1/Fun34/YaaH (3), RTA1 + IZH2 (3), KCH (2).
+  - 9 singletons.
+  See `results/network/clusters.txt`.
+- **Structure gallery:** `structure_grid` shows every residue;
+  `structure_grid_plddt50` hides terminal residues with pLDDT < 50.

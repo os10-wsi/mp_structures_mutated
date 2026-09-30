@@ -1,0 +1,2244 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns="http://www.gexf.net/1.2draft" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd" version="1.2">
+  <meta lastmodifieddate="2026-09-30">
+    <creator>NetworkX 3.6.1</creator>
+  </meta>
+  <graph defaultedgetype="undirected" mode="static" name="">
+    <attributes mode="static" class="edge">
+      <attribute id="5" title="alntmscore" type="double" />
+    </attributes>
+    <attributes mode="static" class="node">
+      <attribute id="0" title="family" type="string" />
+      <attribute id="1" title="pfam" type="string" />
+      <attribute id="2" title="length" type="long" />
+      <attribute id="3" title="n_tm" type="long" />
+      <attribute id="4" title="topology" type="string" />
+    </attributes>
+    <nodes>
+      <node id="P04817" label="CAN1">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="16.8" />
+        <viz:position x="-233.28775683583092" y="326.55303775200014" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="590" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-? / C-?" />
+        </attvalues>
+      </node>
+      <node id="P05316" label="FUR4">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="17.66" />
+        <viz:position x="-134.45663466839497" y="511.40323009749466" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF02133" />
+          <attvalue for="2" value="633" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-? / C-?" />
+        </attvalues>
+      </node>
+      <node id="P06775" label="HIP1">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.060000000000002" />
+        <viz:position x="-173.5159783298944" y="271.9617244426163" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="603" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P0CD91" label="AQY1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="11.1" />
+        <viz:position x="-118.46550499177198" y="-469.34217474504027" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF00230" />
+          <attvalue for="2" value="305" />
+          <attvalue for="3" value="6" />
+          <attvalue for="4" value="6 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P10870" label="SNF3">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="22.68" />
+        <viz:position x="1.1499163014542357" y="13.851472221593738" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="884" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P13181" label="GAL2">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.48" />
+        <viz:position x="55.390303028672456" y="136.5337856854381" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="574" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P15380" label="PUT4">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.54" />
+        <viz:position x="-149.4316778342323" y="431.5444353797795" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="627" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-? / C-?" />
+        </attvalues>
+      </node>
+      <node id="P19807" label="HNM1">
+        <viz:color r="0" g="131" b="0" a="1.0" />
+        <viz:size value="16.259999999999998" />
+        <viz:position x="-224.95804815896258" y="405.7799756421545" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease_2 (APC)" />
+          <attvalue for="1" value="PF13520" />
+          <attvalue for="2" value="563" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P23585" label="HXT2">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="15.82" />
+        <viz:position x="163.540540326365" y="10.480340795224434" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="541" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P25297" label="PHO84">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.740000000000002" />
+        <viz:position x="-65.78268123045834" y="-73.64947031880855" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="587" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-out / C-out" />
+        </attvalues>
+      </node>
+      <node id="P25346" label="GIT1">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="15.36" />
+        <viz:position x="-6.779264440488086" y="-145.38675539225474" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="518" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P25376" label="AGP1">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.66" />
+        <viz:position x="-96.22352762911044" y="295.6986099391872" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="633" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P25613" label="ADY2">
+        <viz:color r="232" g="123" b="164" a="1.0" />
+        <viz:size value="10.66" />
+        <viz:position x="450.20037893080706" y="-295.18868444651036" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Gpr1/Fun34/YaaH" />
+          <attvalue for="1" value="PF01184" />
+          <attvalue for="2" value="283" />
+          <attvalue for="3" value="6" />
+          <attvalue for="4" value="6 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P25621" label="FEN2">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="15.24" />
+        <viz:position x="-139.66953463432122" y="-107.10391178258782" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="512" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P30605" label="ITR1">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.68" />
+        <viz:position x="64.98626844791733" y="-176.0453575985388" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="584" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P30606" label="ITR2">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="17.18" />
+        <viz:position x="-159.05289657897993" y="-31.117191365646924" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="609" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P32465" label="HXT1">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.4" />
+        <viz:position x="145.13051766875114" y="-152.14010672702682" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="570" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P32466" label="HXT3">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.34" />
+        <viz:position x="13.226625315505823" y="-70.30643589992218" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="567" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P32487" label="LYP1">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.22" />
+        <viz:position x="-210.65486810726543" y="484.21224882207053" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="611" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P32907" label="ATO2">
+        <viz:color r="232" g="123" b="164" a="1.0" />
+        <viz:size value="10.64" />
+        <viz:position x="385.254788269511" y="-277.54328125884234" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Gpr1/Fun34/YaaH" />
+          <attvalue for="1" value="PF01184" />
+          <attvalue for="2" value="282" />
+          <attvalue for="3" value="6" />
+          <attvalue for="4" value="6 TM | N-out / C-out" />
+        </attvalues>
+      </node>
+      <node id="P33413" label="DUR3">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="19.7" />
+        <viz:position x="-20.42978289246632" y="330.4001640657163" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF00474" />
+          <attvalue for="2" value="735" />
+          <attvalue for="3" value="14" />
+          <attvalue for="4" value="14 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P35735" label="SFK1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="12.059999999999999" />
+        <viz:position x="-228.63778898728265" y="-423.78197307143427" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF10277" />
+          <attvalue for="2" value="353" />
+          <attvalue for="3" value="6" />
+          <attvalue for="4" value="6 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P36035" label="JEN1">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="17.32" />
+        <viz:position x="-26.029289347111142" y="95.44369476953443" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="616" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P36173" label="GEX2">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="17.3" />
+        <viz:position x="-15.157314164884124" y="-223.59931117977138" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="615" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P38084" label="BAP2">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.18" />
+        <viz:position x="-156.96977325178915" y="350.4772050659511" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="609" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P38090" label="AGP2">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="16.92" />
+        <viz:position x="-84.33827436533599" y="384.25109097662397" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="596" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P38227" label="QDR3">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="18.78" />
+        <viz:position x="-85.95210927949074" y="5.946490267385986" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="689" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P38695" label="HXT5">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.84" />
+        <viz:position x="-17.11026536244531" y="175.10596068735032" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="592" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P38993" label="FET3">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="17.72" />
+        <viz:position x="-445.0776061124147" y="-213.3823975405047" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF00394" />
+          <attvalue for="2" value="636" />
+          <attvalue for="3" value="1" />
+          <attvalue for="4" value="1 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P39004" label="HXT7">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.4" />
+        <viz:position x="-83.09950684763145" y="-160.2809891394068" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="570" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P39932" label="STL1">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="16.380000000000003" />
+        <viz:position x="86.18064764442835" y="-99.87921098159032" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="569" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P40169" label="YNL194C">
+        <viz:color r="237" g="161" b="0" a="1.0" />
+        <viz:size value="11.02" />
+        <viz:position x="453.89021698657933" y="84.08579497967625" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="SUR7" />
+          <attvalue for="1" value="PF06687" />
+          <attvalue for="2" value="301" />
+          <attvalue for="3" value="4" />
+          <attvalue for="4" value="4 TM | N-out / C-out" />
+        </attvalues>
+      </node>
+      <node id="P40474" label="QDR2">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="15.84" />
+        <viz:position x="-103.84500037574456" y="109.97024691063596" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="542" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P40988" label="FET4">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="16.04" />
+        <viz:position x="-351.4699364294397" y="-333.92054454898937" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF04120" />
+          <attvalue for="2" value="552" />
+          <attvalue for="3" value="7" />
+          <attvalue for="4" value="7 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P41948" label="MEP2">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="14.98" />
+        <viz:position x="-486.9911590040144" y="-70.19441349868143" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF00909" />
+          <attvalue for="2" value="499" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P47114" label="KCH1">
+        <viz:color r="74" g="58" b="167" a="1.0" />
+        <viz:size value="14.94" />
+        <viz:position x="497.0490406989725" y="-146.58326353139253" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="KCH" />
+          <attvalue for="1" value="PF16944" />
+          <attvalue for="2" value="497" />
+          <attvalue for="3" value="3" />
+          <attvalue for="4" value="3 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P49573" label="CTR1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="13.12" />
+        <viz:position x="-495.7477365517824" y="3.386374412018585" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF04145" />
+          <attvalue for="2" value="406" />
+          <attvalue for="3" value="2" />
+          <attvalue for="4" value="2 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P50276" label="MUP1">
+        <viz:color r="0" g="131" b="0" a="1.0" />
+        <viz:size value="16.48" />
+        <viz:position x="-66.71305891588705" y="468.58702353661147" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease_2 (APC)" />
+          <attvalue for="1" value="PF13520" />
+          <attvalue for="2" value="574" />
+          <attvalue for="3" value="10" />
+          <attvalue for="4" value="10 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53047" label="RTA1">
+        <viz:color r="227" g="73" b="72" a="1.0" />
+        <viz:size value="11.34" />
+        <viz:position x="136.72200531061497" y="-500.49486686516275" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="RTA1" />
+          <attvalue for="1" value="PF04479" />
+          <attvalue for="2" value="317" />
+          <attvalue for="3" value="7" />
+          <attvalue for="4" value="7 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53154" label="GUP1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="16.2" />
+        <viz:position x="-291.2972575527356" y="-383.92800715832254" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF03062" />
+          <attvalue for="2" value="560" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53322" label="TNA1">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="15.68" />
+        <viz:position x="156.8526364166001" y="-66.73055183848196" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="534" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53388" label="DIP5">
+        <viz:color r="27" g="175" b="122" a="1.0" />
+        <viz:size value="17.16" />
+        <viz:position x="-9.584430391316099" y="412.9681453364967" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="AA_permease (APC)" />
+          <attvalue for="1" value="PF00324" />
+          <attvalue for="2" value="608" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53838" label="BOR1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="16.52" />
+        <viz:position x="67.93969568475991" y="431.3777155688696" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF00955" />
+          <attvalue for="2" value="576" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="P53943" label="AQR1">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="16.72" />
+        <viz:position x="-154.54520086677158" y="49.96055377552949" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="586" />
+          <attvalue for="3" value="11" />
+          <attvalue for="4" value="11 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="P54003" label="SUR7">
+        <viz:color r="237" g="161" b="0" a="1.0" />
+        <viz:size value="11.04" />
+        <viz:position x="544.3727727064338" y="109.42062149676498" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="SUR7" />
+          <attvalue for="1" value="PF06687" />
+          <attvalue for="2" value="302" />
+          <attvalue for="3" value="4" />
+          <attvalue for="4" value="4 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q04705" label="PRM6">
+        <viz:color r="74" g="58" b="167" a="1.0" />
+        <viz:size value="12.04" />
+        <viz:position x="518.0926746489254" y="-76.70303835874168" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="KCH" />
+          <attvalue for="1" value="PF16944" />
+          <attvalue for="2" value="352" />
+          <attvalue for="3" value="3" />
+          <attvalue for="4" value="3 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q05131" label="RCH1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="13.68" />
+        <viz:position x="-402.65550993505417" y="-278.12130203908225" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF13593" />
+          <attvalue for="2" value="434" />
+          <attvalue for="3" value="10" />
+          <attvalue for="4" value="10 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q06451" label="TPO3">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="17.439999999999998" />
+        <viz:position x="88.58940685651335" y="-17.76237352501654" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="622" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q06991" label="PUN1">
+        <viz:color r="237" g="161" b="0" a="1.0" />
+        <viz:size value="10.26" />
+        <viz:position x="512.1066419742931" y="50.35974775131143" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="SUR7" />
+          <attvalue for="1" value="PF06687" />
+          <attvalue for="2" value="263" />
+          <attvalue for="3" value="4" />
+          <attvalue for="4" value="4 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q07651" label="FMP45">
+        <viz:color r="237" g="161" b="0" a="1.0" />
+        <viz:size value="11.18" />
+        <viz:position x="485.7842782869517" y="144.3685359074749" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="SUR7" />
+          <attvalue for="1" value="PF06687" />
+          <attvalue for="2" value="309" />
+          <attvalue for="3" value="4" />
+          <attvalue for="4" value="4 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q08417" label="RSB1">
+        <viz:color r="227" g="73" b="72" a="1.0" />
+        <viz:size value="12.64" />
+        <viz:position x="66.74429729120126" y="-499.9284921220122" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="RTA1" />
+          <attvalue for="1" value="PF04479" />
+          <attvalue for="2" value="382" />
+          <attvalue for="3" value="7" />
+          <attvalue for="4" value="7 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q08902" label="AMF1">
+        <viz:color r="235" g="104" b="52" a="1.0" />
+        <viz:size value="15.3" />
+        <viz:position x="71.08039019105884" y="60.352754156344844" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="MFS_1" />
+          <attvalue for="1" value="PF07690" />
+          <attvalue for="2" value="515" />
+          <attvalue for="3" value="13" />
+          <attvalue for="4" value="13 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q08913" label="FEX1">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="12.5" />
+        <viz:position x="-472.3073478977817" y="-142.19230299019623" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF02537" />
+          <attvalue for="2" value="375" />
+          <attvalue for="3" value="9" />
+          <attvalue for="4" value="9 TM | N-in / C-out" />
+        </attvalues>
+      </node>
+      <node id="Q12300" label="RGT2">
+        <viz:color r="42" g="120" b="214" a="1.0" />
+        <viz:size value="20.259999999999998" />
+        <viz:position x="146.73542525891332" y="90.82157869687558" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Sugar_tr (MFS)" />
+          <attvalue for="1" value="PF00083" />
+          <attvalue for="2" value="763" />
+          <attvalue for="3" value="12" />
+          <attvalue for="4" value="12 TM | N-in / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q12359" label="ATO3">
+        <viz:color r="232" g="123" b="164" a="1.0" />
+        <viz:size value="10.5" />
+        <viz:position x="402.26278347030933" y="-342.50117172296" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Gpr1/Fun34/YaaH" />
+          <attvalue for="1" value="PF01184" />
+          <attvalue for="2" value="275" />
+          <attvalue for="3" value="5" />
+          <attvalue for="4" value="5 TM | N-out / C-in" />
+        </attvalues>
+      </node>
+      <node id="Q12442" label="IZH2">
+        <viz:color r="163" g="162" b="156" a="1.0" />
+        <viz:size value="11.34" />
+        <viz:position x="196.9544702555672" y="-467.49497949179283" z="0.0" />
+        <attvalues>
+          <attvalue for="0" value="Other" />
+          <attvalue for="1" value="PF03006" />
+          <attvalue for="2" value="317" />
+          <attvalue for="3" value="7" />
+          <attvalue for="4" value="7 TM | N-in / C-out" />
+        </attvalues>
+      </node>
+    </nodes>
+    <edges>
+      <edge source="P04817" target="P05316" id="0" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.4544" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P06775" id="1" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8405" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P15380" id="2" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8098000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P19807" id="3" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7147" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P25376" id="4" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79455" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P32487" id="5" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.87975" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P33413" id="6" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6004" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P38084" id="7" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8220000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P38090" id="8" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.84795" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P50276" id="9" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7496" />
+        </attvalues>
+      </edge>
+      <edge source="P04817" target="P53388" id="10" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.84825" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P06775" id="11" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.46609999999999996" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P15380" id="12" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.42345" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P19807" id="13" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5322" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P25376" id="14" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.42575" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P32487" id="15" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5101" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P33413" id="16" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.48575" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P38084" id="17" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.43174999999999997" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P38090" id="18" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.46145" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P50276" id="19" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5226" />
+        </attvalues>
+      </edge>
+      <edge source="P05316" target="P53388" id="20" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5138499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P15380" id="21" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.78415" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P19807" id="22" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6975" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P25376" id="23" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8593999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P32487" id="24" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.811" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P33413" id="25" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.56975" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P38084" id="26" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.838" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P38090" id="27" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7899499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P50276" id="28" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7170000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P06775" target="P53388" id="29" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79085" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P13181" id="30" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8069999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P23585" id="31" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8143" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P25297" id="32" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.73165" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P25346" id="33" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6472" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P25621" id="34" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6651" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P30605" id="35" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7885500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P30606" id="36" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.76875" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P32465" id="37" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.85775" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P32466" id="38" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8725499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P36035" id="39" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.583" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P36173" id="40" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5649500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P38227" id="41" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5493" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P38695" id="42" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.80515" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P39004" id="43" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.81745" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P39932" id="44" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8426" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P40474" id="45" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5887" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P53322" id="46" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6725000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="P53943" id="47" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5621" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="Q06451" id="48" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6285000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="Q08902" id="49" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.64395" />
+        </attvalues>
+      </edge>
+      <edge source="P10870" target="Q12300" id="50" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.70425" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P23585" id="51" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.9287" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P25297" id="52" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6245499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P25346" id="53" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7291" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P25621" id="54" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6456" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P30605" id="55" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.78955" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P30606" id="56" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8114" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P32465" id="57" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.83375" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P32466" id="58" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.87775" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P36035" id="59" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5850500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P36173" id="60" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.56175" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P38227" id="61" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5459" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P38695" id="62" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.9094500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P39004" id="63" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.92885" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P39932" id="64" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.81975" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P40474" id="65" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5635" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P53322" id="66" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6760999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="P53943" id="67" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61565" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="Q06451" id="68" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.64595" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="Q08902" id="69" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6569499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P13181" target="Q12300" id="70" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7996" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P19807" id="71" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6638999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P25376" id="72" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.72685" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P32487" id="73" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7944" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P33413" id="74" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5165500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P38084" id="75" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7867500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P38090" id="76" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.83425" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P50276" id="77" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7321" />
+        </attvalues>
+      </edge>
+      <edge source="P15380" target="P53388" id="78" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8278000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P25376" id="79" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6777" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P32487" id="80" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7095499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P33413" id="81" weight="0.9984999999999999">
+        <attvalues>
+          <attvalue for="5" value="0.40605" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P38084" id="82" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6875" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P38090" id="83" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.71275" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P50276" id="84" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.78375" />
+        </attvalues>
+      </edge>
+      <edge source="P19807" target="P53388" id="85" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.71065" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P25297" id="86" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.70825" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P25346" id="87" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7084" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P25621" id="88" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6254500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P30605" id="89" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.796" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P30606" id="90" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8109999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P32465" id="91" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8314" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P32466" id="92" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.88185" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P36035" id="93" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5980000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P36173" id="94" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.55115" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P38227" id="95" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.59965" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P38695" id="96" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.9261" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P39004" id="97" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.91995" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P39932" id="98" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8514" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P40474" id="99" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61195" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P53322" id="100" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7101" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="P53943" id="101" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5992" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="Q06451" id="102" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61185" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="Q08902" id="103" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6477999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P23585" target="Q12300" id="104" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.81275" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P25346" id="105" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.77505" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P25621" id="106" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6774" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P30605" id="107" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7254499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P30606" id="108" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7227" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P32465" id="109" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6997" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P32466" id="110" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7031499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P36035" id="111" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62685" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P36173" id="112" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5278499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P38227" id="113" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5843499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P38695" id="114" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6288" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P39004" id="115" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6595" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P39932" id="116" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.737" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P40474" id="117" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5521499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P53322" id="118" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6965" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="P53943" id="119" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6524000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="Q06451" id="120" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7035" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="Q08902" id="121" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6361" />
+        </attvalues>
+      </edge>
+      <edge source="P25297" target="Q12300" id="122" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.74085" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P25621" id="123" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6853499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P30605" id="124" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7057" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P30606" id="125" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7241500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P32465" id="126" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.68375" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P32466" id="127" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7563" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P36035" id="128" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.67205" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P36173" id="129" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.51905" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P38227" id="130" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6166" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P38695" id="131" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7244999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P39004" id="132" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.64405" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P39932" id="133" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7536" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P40474" id="134" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.63725" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P53322" id="135" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.71905" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="P53943" id="136" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.63905" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="Q06451" id="137" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.67485" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="Q08902" id="138" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61625" />
+        </attvalues>
+      </edge>
+      <edge source="P25346" target="Q12300" id="139" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6911" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P32487" id="140" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.77565" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P33413" id="141" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5112" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P38084" id="142" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8557" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P38090" id="143" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79425" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P50276" id="144" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7684" />
+        </attvalues>
+      </edge>
+      <edge source="P25376" target="P53388" id="145" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79595" />
+        </attvalues>
+      </edge>
+      <edge source="P25613" target="P32907" id="146" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.713" />
+        </attvalues>
+      </edge>
+      <edge source="P25613" target="Q12359" id="147" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.71705" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P30605" id="148" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.70065" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P30606" id="149" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.66025" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P32465" id="150" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6871499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P32466" id="151" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6732" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P36035" id="152" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62875" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P36173" id="153" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5734" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P38227" id="154" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6757" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P38695" id="155" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6747" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P39004" id="156" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.65345" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P39932" id="157" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61575" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P40474" id="158" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6718500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P53322" id="159" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.755" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="P53943" id="160" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6803" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="Q06451" id="161" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6951499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="Q08902" id="162" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62495" />
+        </attvalues>
+      </edge>
+      <edge source="P25621" target="Q12300" id="163" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6509499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P30606" id="164" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8993" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P32465" id="165" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7643" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P32466" id="166" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79725" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P36035" id="167" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.60915" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P36173" id="168" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.53445" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P38227" id="169" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5506" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P38695" id="170" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7616" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P39004" id="171" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.78975" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P39932" id="172" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.841" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P40474" id="173" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6079" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P53322" id="174" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6248" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="P53943" id="175" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6352500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="Q06451" id="176" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6454" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="Q08902" id="177" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6123000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P30605" target="Q12300" id="178" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7584" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P32465" id="179" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.77505" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P32466" id="180" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.78545" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P36035" id="181" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.57485" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P36173" id="182" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.54455" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P38227" id="183" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.54585" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P38695" id="184" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7694" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P39004" id="185" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79595" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P39932" id="186" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.85205" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P40474" id="187" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6072500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P53322" id="188" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6574" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="P53943" id="189" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.57715" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="Q06451" id="190" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6128" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="Q08902" id="191" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.59085" />
+        </attvalues>
+      </edge>
+      <edge source="P30606" target="Q12300" id="192" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.73595" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P32466" id="193" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8981" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P36035" id="194" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5949" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P36173" id="195" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.53645" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P38227" id="196" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.4911" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P38695" id="197" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8001" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P39004" id="198" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.83255" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P39932" id="199" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8231999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P40474" id="200" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.57255" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P53322" id="201" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6417" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="P53943" id="202" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.57555" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="Q06451" id="203" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5780000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="Q08902" id="204" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5963" />
+        </attvalues>
+      </edge>
+      <edge source="P32465" target="Q12300" id="205" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8546" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P36035" id="206" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61155" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P36173" id="207" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5646" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P38227" id="208" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5102500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P38695" id="209" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8452999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P39004" id="210" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8688" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P39932" id="211" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8432" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P40474" id="212" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61345" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P53322" id="213" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6488499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="P53943" id="214" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62985" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="Q06451" id="215" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.59485" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="Q08902" id="216" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62955" />
+        </attvalues>
+      </edge>
+      <edge source="P32466" target="Q12300" id="217" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.85185" />
+        </attvalues>
+      </edge>
+      <edge source="P32487" target="P33413" id="218" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5496000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P32487" target="P38084" id="219" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8189500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P32487" target="P38090" id="220" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8078" />
+        </attvalues>
+      </edge>
+      <edge source="P32487" target="P50276" id="221" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7655000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P32487" target="P53388" id="222" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8266" />
+        </attvalues>
+      </edge>
+      <edge source="P32907" target="Q12359" id="223" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6940999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P33413" target="P38084" id="224" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.49734999999999996" />
+        </attvalues>
+      </edge>
+      <edge source="P33413" target="P38090" id="225" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.55125" />
+        </attvalues>
+      </edge>
+      <edge source="P33413" target="P50276" id="226" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.513" />
+        </attvalues>
+      </edge>
+      <edge source="P33413" target="P53388" id="227" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.57565" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P36173" id="228" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.56165" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P38227" id="229" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5897" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P38695" id="230" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.59425" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P39004" id="231" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62795" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P39932" id="232" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.63105" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P40474" id="233" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6452500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P53322" id="234" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6617500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="P53943" id="235" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5627" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="Q06451" id="236" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6895" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="Q08902" id="237" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6933499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P36035" target="Q12300" id="238" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.56345" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P38227" id="239" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5017" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P38695" id="240" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.51355" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P39004" id="241" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5028" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P39932" id="242" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6092" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P40474" id="243" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5499499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P53322" id="244" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5855" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="P53943" id="245" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5682" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="Q06451" id="246" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6402" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="Q08902" id="247" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.72475" />
+        </attvalues>
+      </edge>
+      <edge source="P36173" target="Q12300" id="248" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5067999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P38084" target="P38090" id="249" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.789" />
+        </attvalues>
+      </edge>
+      <edge source="P38084" target="P50276" id="250" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7645500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P38084" target="P53388" id="251" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79635" />
+        </attvalues>
+      </edge>
+      <edge source="P38090" target="P50276" id="252" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7234499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P38090" target="P53388" id="253" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8375" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P38695" id="254" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5257000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P39004" id="255" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5579000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P39932" id="256" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.603" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P40474" id="257" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.67405" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P53322" id="258" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.58715" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="P53943" id="259" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.74735" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="Q06451" id="260" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.85565" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="Q08902" id="261" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6114999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P38227" target="Q12300" id="262" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5757" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="P39004" id="263" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.9037" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="P39932" id="264" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.82295" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="P40474" id="265" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6021" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="P53322" id="266" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62355" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="P53943" id="267" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5647" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="Q06451" id="268" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5589500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="Q08902" id="269" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.67745" />
+        </attvalues>
+      </edge>
+      <edge source="P38695" target="Q12300" id="270" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.75695" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="P39932" id="271" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.79155" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="P40474" id="272" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.62205" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="P53322" id="273" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.69735" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="P53943" id="274" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6187" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="Q06451" id="275" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.61545" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="Q08902" id="276" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.63025" />
+        </attvalues>
+      </edge>
+      <edge source="P39004" target="Q12300" id="277" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.81125" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="P40474" id="278" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.55835" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="P53322" id="279" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6698" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="P53943" id="280" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6345000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="Q06451" id="281" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.68355" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="Q08902" id="282" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6054" />
+        </attvalues>
+      </edge>
+      <edge source="P39932" target="Q12300" id="283" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7816000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P40169" target="P54003" id="284" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7340500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P40169" target="Q06991" id="285" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8894500000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P40169" target="Q07651" id="286" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7659" />
+        </attvalues>
+      </edge>
+      <edge source="P40474" target="P53322" id="287" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6680999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P40474" target="P53943" id="288" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.9309499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P40474" target="Q06451" id="289" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.77095" />
+        </attvalues>
+      </edge>
+      <edge source="P40474" target="Q08902" id="290" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6227" />
+        </attvalues>
+      </edge>
+      <edge source="P40474" target="Q12300" id="291" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.58545" />
+        </attvalues>
+      </edge>
+      <edge source="P47114" target="Q04705" id="292" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6904" />
+        </attvalues>
+      </edge>
+      <edge source="P50276" target="P53388" id="293" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7404" />
+        </attvalues>
+      </edge>
+      <edge source="P53047" target="Q08417" id="294" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.70465" />
+        </attvalues>
+      </edge>
+      <edge source="P53047" target="Q12442" id="295" weight="0.8795">
+        <attvalues>
+          <attvalue for="5" value="0.40449999999999997" />
+        </attvalues>
+      </edge>
+      <edge source="P53322" target="P53943" id="296" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6506000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="P53322" target="Q06451" id="297" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6144499999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P53322" target="Q08902" id="298" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.68865" />
+        </attvalues>
+      </edge>
+      <edge source="P53322" target="Q12300" id="299" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.63895" />
+        </attvalues>
+      </edge>
+      <edge source="P53388" target="P53838" id="300" weight="0.537">
+        <attvalues>
+          <attvalue for="5" value="0.207" />
+        </attvalues>
+      </edge>
+      <edge source="P53943" target="Q06451" id="301" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7002999999999999" />
+        </attvalues>
+      </edge>
+      <edge source="P53943" target="Q08902" id="302" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.68645" />
+        </attvalues>
+      </edge>
+      <edge source="P53943" target="Q12300" id="303" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.58345" />
+        </attvalues>
+      </edge>
+      <edge source="P54003" target="Q06991" id="304" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.74285" />
+        </attvalues>
+      </edge>
+      <edge source="P54003" target="Q07651" id="305" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.7379" />
+        </attvalues>
+      </edge>
+      <edge source="Q06451" target="Q08902" id="306" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.68585" />
+        </attvalues>
+      </edge>
+      <edge source="Q06451" target="Q12300" id="307" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.5718000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="Q06991" target="Q07651" id="308" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.8137000000000001" />
+        </attvalues>
+      </edge>
+      <edge source="Q08902" target="Q12300" id="309" weight="1.0">
+        <attvalues>
+          <attvalue for="5" value="0.6632499999999999" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

@@ -17,6 +17,7 @@ of the TM count; if neither is annotated the side is shown as "?".
 Length histograms only need the ID-mapping table and are always produced.
 """
 import json
+import textwrap
 
 import matplotlib
 
@@ -130,8 +131,9 @@ def topology_class_plot(classes):
     y = np.arange(len(classes))[::-1]
     ax.barh(y, classes["n_proteins"], color="#2a78d6", height=0.7)
     for yi, (n, genes) in zip(y, zip(classes["n_proteins"], classes["genes"])):
-        ax.text(n + 0.2, yi, genes if len(genes) < 70 else genes[:67] + "…",
-                va="center", fontsize=6.5, color=TEXT_2)
+        ax.text(n + 0.3, yi, textwrap.fill(genes, 90), va="center",
+                fontsize=5.5 if len(genes) > 90 else 6.5, color=TEXT_2,
+                linespacing=1.0)
     ax.set_yticks(y, classes["topology"])
     ax.set_xlabel("Number of proteins")
     ax.set_title(f"{len(classes)} distinct transmembrane topologies",
@@ -139,7 +141,7 @@ def topology_class_plot(classes):
     style_axes(ax)
     ax.yaxis.grid(False)
     ax.xaxis.grid(True, color="#e4e3df", lw=0.8)
-    ax.set_xlim(0, classes.n_proteins.max() * 2.6)
+    ax.set_xlim(0, classes.n_proteins.max() * 1.05)
     save(fig, "topology_classes")
 
 
