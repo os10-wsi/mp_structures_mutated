@@ -1,0 +1,19 @@
+topology	n_proteins	n_tm	genes
+12 TM | N-in / C-in	24	12	AGP1, AGP2, BAP2, BOR1, DIP5, FEN2, GAL2, GEX2, GIT1, HIP1, HXT1, HXT2, HXT3, HXT5, HXT7, ITR1, ITR2, JEN1, LYP1, QDR2, RGT2, SNF3, STL1, TPO3
+11 TM | N-out / C-in	6	11	AQR1, GUP1, HNM1, MEP2, QDR3, TNA1
+12 TM | N-? / C-?	3	12	CAN1, FUR4, PUT4
+7 TM | N-out / C-in	3	7	FET4, RSB1, RTA1
+6 TM | N-in / C-in	3	6	ADY2, AQY1, SFK1
+4 TM | N-in / C-in	3	4	FMP45, PUN1, SUR7
+10 TM | N-in / C-in	2	10	MUP1, RCH1
+3 TM | N-out / C-in	2	3	KCH1, PRM6
+14 TM | N-in / C-in	1	14	DUR3
+13 TM | N-out / C-in	1	13	AMF1
+12 TM | N-out / C-out	1	12	PHO84
+9 TM | N-in / C-out	1	9	FEX1
+7 TM | N-in / C-out	1	7	IZH2
+6 TM | N-out / C-out	1	6	ATO2
+5 TM | N-out / C-in	1	5	ATO3
+4 TM | N-out / C-out	1	4	YNL194C
+2 TM | N-in / C-in	1	2	CTR1
+1 TM | N-out / C-in	1	1	FET3

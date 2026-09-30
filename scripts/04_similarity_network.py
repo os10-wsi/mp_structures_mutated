@@ -7,7 +7,7 @@ mean of the two search directions; self-hits removed). The script
      attributes (gene, family, Pfam, length, TM count, topology), edge weight =
      probability, and pre-computed positions/colours so it opens ready-laid-out;
   2. reproduces the Gephi layout in Python — Fruchterman-Reingold to
-     equilibrium, then ForceAtlas2 with node sizes to prevent overlap — and
+     equilibrium, then ForceAtlas2, then an overlap-removal pass — and
      draws results/figures/similarity_network.{png,pdf};
   3. writes the probability matrix (results/network/prob_matrix.tsv) and the
      node / edge tables.
@@ -66,15 +66,38 @@ def node_table(ids):
     return df.loc[ids]
 
 
-def layout(G, sizes, seed):
+def prevent_overlap(pos, radii, iters=500):
+    """Push apart nodes closer than the sum of their radii (like Gephi's
+    'Prevent Overlap'). Positions are first scaled to a unit extent."""
+    keys = list(pos)
+    xy = np.array([pos[k] for k in keys], dtype=float)
+    xy = (xy - xy.mean(0)) / np.ptp(xy, axis=0).max()
+    r = np.array([radii[k] for k in keys])
+    rng = np.random.default_rng(0)
+    for _ in range(iters):
+        diff = xy[:, None] - xy[None]
+        d = np.sqrt((diff ** 2).sum(-1))
+        np.fill_diagonal(d, np.inf)
+        overlap = (r[:, None] + r[None]) - d
+        if (overlap <= 0).all():
+            break
+        d = np.where(d == 0, 1e-9, d)
+        diff += (d == 1e-9)[..., None] * rng.normal(0, 1e-4, diff.shape)
+        push = np.clip(overlap, 0, None)[..., None] * diff / d[..., None] / 2
+        xy += push.sum(1) * 0.5
+    return dict(zip(keys, xy))
+
+
+def layout(G, radii, seed):
     # Fruchterman-Reingold to (near) equilibrium
     pos = nx.spring_layout(G, weight="weight", iterations=2000,
                            threshold=1e-6, seed=seed)
-    # ForceAtlas2, preventing overlap via node sizes
-    pos = nx.forceatlas2_layout(G, pos=pos, weight="weight", max_iter=2000,
-                                scaling_ratio=2.0, gravity=1.0,
-                                node_size=sizes, seed=seed)
-    return pos
+    # ForceAtlas2 from the FR positions; gravity keeps unconnected nodes near
+    pos = nx.forceatlas2_layout(G, pos=pos, weight="weight", max_iter=3000,
+                                scaling_ratio=2.0, gravity=10.0, seed=seed)
+    # networkx's node_size option is numerically unstable here, so
+    # overlap is removed as a separate step
+    return prevent_overlap(pos, radii)
 
 
 def draw(G, pos, nodes, colors, min_prob):
@@ -147,8 +170,8 @@ def main():
           f"(prob >= {args.min_prob}), "
           f"{nx.number_connected_components(G)} connected components")
 
-    sizes = {n: 0.02 + 0.00003 * nodes.loc[n, "Length"] for n in G}
-    pos = layout(G, sizes, args.seed)
+    radii = {n: 0.028 + 0.00002 * nodes.loc[n, "Length"] for n in G}
+    pos = layout(G, radii, args.seed)
     draw(G, pos, nodes, colors, args.min_prob)
 
     # Gephi export with positions and colours baked in

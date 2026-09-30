@@ -10,6 +10,7 @@ Panels are ordered by Pfam family, then gene name, and labelled with the gene
 name and UniProt accession.
 
 Outputs: results/renders/<ACC>.png, results/figures/structure_grid.{png,pdf}
+         (with --min-plddt X: renders_plddtX/, structure_grid_plddtX.*)
 
 Usage: python 05_structure_grid.py [--cols 8] [--rows 7] [--min-plddt 0]
   --min-plddt X  hides terminal residues with pLDDT < X (long disordered tails
@@ -30,7 +31,6 @@ from matplotlib.colors import LinearSegmentedColormap
 from common import (FIGURES, RESULTS, STRUCT_DIR, TEXT, TEXT_2, family_colors,
                     family_label, load_proteins)
 
-RENDER_DIR = RESULTS / "renders"
 PX = 900
 
 
@@ -96,8 +96,8 @@ def trim_termini(cmd, obj, min_plddt):
         cmd.remove(f"{obj} and resi {good[-1] + 1}-{res[-1]}")
 
 
-def render(acc, topo_row, min_plddt, force=False):
-    out = RENDER_DIR / f"{acc}.png"
+def render(acc, topo_row, min_plddt, render_dir, force=False):
+    out = render_dir / f"{acc}.png"
     if out.exists() and not force:
         return out
     with pymol2.PyMOL() as p:
@@ -165,10 +165,12 @@ def main():
         print(f"warning: {len(df)} structures but only "
               f"{args.cols * args.rows} panels; extra ones are dropped")
 
-    RENDER_DIR.mkdir(parents=True, exist_ok=True)
+    tag = f"_plddt{args.min_plddt:g}" if args.min_plddt > 0 else ""
+    render_dir = RESULTS / f"renders{tag}"
+    render_dir.mkdir(parents=True, exist_ok=True)
     for acc in df.Entry:
         row = topo.loc[acc] if topo is not None and acc in topo.index else None
-        render(acc, row, args.min_plddt, args.force)
+        render(acc, row, args.min_plddt, render_dir, args.force)
         print("rendered", acc)
 
     colors = family_colors()
@@ -177,7 +179,7 @@ def main():
     for ax in axes.flat:
         ax.axis("off")
     for ax, r in zip(axes.flat, df.itertuples()):
-        ax.imshow(mpimg.imread(RENDER_DIR / f"{r.Entry}.png"))
+        ax.imshow(mpimg.imread(render_dir / f"{r.Entry}.png"))
         ax.set_title(r.gene, fontsize=9, fontweight="bold", color=TEXT, pad=7)
         ax.text(0.5, -0.02, f"{r.Entry} · {r.Length} aa", ha="center",
                 va="top", transform=ax.transAxes, fontsize=6, color=TEXT_2)
@@ -204,9 +206,9 @@ def main():
                title_fontsize=7)
     FIGURES.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "pdf"):
-        fig.savefig(FIGURES / f"structure_grid.{ext}", dpi=300)
+        fig.savefig(FIGURES / f"structure_grid{tag}.{ext}", dpi=300)
     plt.close(fig)
-    print(f"wrote {FIGURES / 'structure_grid.png'} ({len(df)} structures)")
+    print(f"wrote {FIGURES / f'structure_grid{tag}.png'} ({len(df)} structures)")
 
 
 if __name__ == "__main__":
