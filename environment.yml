@@ -1,0 +1,11 @@
+name: mp_structures
+channels: [conda-forge, bioconda]
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - networkx>=3.4      # needs nx.forceatlas2_layout
+  - requests
+  - pymol-open-source
+  - foldseek
