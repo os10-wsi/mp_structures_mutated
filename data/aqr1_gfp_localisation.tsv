@@ -1,0 +1,5 @@
+Condition	Mean (membrane/internal GFP)	Error bar (±)	Lower	Upper	Significance vs Aqr1
+Aqr1 (WT)	0.57	0.25	0.31	0.82	n/a
+Aqr1 (Q149A)	0.77	0.22	0.55	0.99	***
+Aqr1 (Q238A)	0.62	0.29	0.33	0.91	ns
+Aqr1 (R504A)	0.89	0.38	0.51	1.27	****

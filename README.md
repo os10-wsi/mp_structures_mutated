@@ -19,6 +19,7 @@ conda env create -f environment.yml && conda activate mp_structures
 | 3 | `03_foldseek_allvsall.sh` | `results/foldseek/foldseek_easy_allvsall` |
 | 4 | `04_similarity_network.py` | `results/network/similarity_network.gexf` (Gephi), `prob_matrix.tsv`, `nodes.csv`/`edges.csv`, `clusters.txt`, figure `similarity_network` |
 | 5 | `05_structure_grid.py` | `results/renders/<ACC>.png`, figure `structure_grid` (8 × 7, rainbow N→C) |
+| 6 | `06_aqr1_gfp_vs_fitness.py` | `results/aqr1_gfp_vs_fitness.tsv`, figure `aqr1_gfp_vs_fitness` (run on its own, see below) |
 
 Figures go in `results/figures/`, as both PNG (300 dpi) and PDF.
 
@@ -54,6 +55,31 @@ so the membrane normal is vertical, with the cytoplasm at the bottom. Panels
 are grouped by Pfam family, and each has a coloured bar above it. Long
 disordered tails can make a model look small in its panel; use
 `--min-plddt 50` to hide low-confidence termini.
+
+### AQR1: GFP surface localisation vs DMS fitness
+`data/aqr1_gfp_localisation.tsv` holds the membrane/internal GFP ratio of the
+Aqr1 point mutants (mean, ± error bar, lower/upper bound, significance vs WT).
+The script looks each mutant up in the AQR1 DMS table by position, wild-type
+and mutant residue (Q149A, Q238A, R504A, all checked against UniProt P53943)
+and plots DMS fitness (x, ± its error) against the GFP ratio (y, with the
+error bar from the table), with Pearson and Spearman correlations. With four
+points the correlations are descriptive only. The DMS table is not part of
+this repository; pass it on the command line:
+
+```bash
+cd scripts
+python 06_aqr1_gfp_vs_fitness.py /path/to/AQR1_fitness.parquet             # mpdms table, uses score_z
+python 06_aqr1_gfp_vs_fitness.py /path/to/fitness_singles_aqr1_003.txt     # lab layout, uses "mean fitness"
+python 06_aqr1_gfp_vs_fitness.py ... --score score_raw --wt-fitness 0      # other column / WT value
+```
+
+Both the mpdms canonical table (`pos`, `wt`, `mut`, `score_z`, `se`, `rep1..N`)
+and the lab `fitness_estimation.tsv` layout (`wt aa`, `pos`, `mut aa`,
+`mean fitness`, `fitness sd`, `wt` row) are recognised. The WT point takes the
+WT row of the DMS table when there is one, otherwise the median of the
+synonymous variants. A mutant missing from the DMS table is reported and left
+out of the correlation. To add more conditions, append rows to the TSV in the
+same `Aqr1 (X123Y)` format.
 
 Set `MP_DATA` / `MP_RESULTS` to use other input and output directories.
 
