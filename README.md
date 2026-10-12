@@ -59,11 +59,13 @@ style of the Domainome figure:
   together.
 
 ### Structure gallery
-PyMOL cartoon coloured with `spectrum count, rainbow`: blue at the N-terminus,
-red at the C-terminus. The grid has no labels; panels are in row-major order
-and listed in `results/figures/structure_grid_order.tsv`. The N→C colour key
-is a separate file, `structure_colour_key`. When UniProt TM helices are
-known, each model is rotated so the membrane normal is vertical, with the
+PyMOL cartoons in an 8 × 7 grid with no labels. By default each structure is
+coloured by Pfam family, using the same blue/grey shades as the topology map;
+the key is `structure_family_key`. With `--color rainbow` it is coloured N→C
+instead (blue → red; files `structure_grid_rainbow*`, key
+`structure_colour_key`). Panels are in row-major order, grouped by family, and
+listed in `results/figures/structure_grid_order.tsv`. When UniProt TM helices
+are known, each model is rotated so the membrane normal is vertical, with the
 cytoplasm at the bottom. Long disordered tails can make a model look small in
 its panel; use `--min-plddt 50` to hide low-confidence termini.
 
@@ -90,5 +92,6 @@ Set `MP_DATA` / `MP_RESULTS` to use other input and output directories.
   - Smaller groups: SUR7 (4), Gpr1/Fun34/YaaH (3), RTA1 + IZH2 (3), KCH (2).
   - 9 singletons.
   See `results/network/clusters.txt`.
-- **Structure gallery:** `structure_grid` shows every residue;
-  `structure_grid_plddt50` hides terminal residues with pLDDT < 50.
+- **Structure gallery:** `structure_grid` (family colours) and
+  `structure_grid_rainbow` show every residue; the `_plddt50` versions hide
+  terminal residues with pLDDT < 50.

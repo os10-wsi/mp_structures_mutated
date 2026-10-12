@@ -1,18 +1,21 @@
-"""Gallery of all structures, rainbow-coloured N (blue) -> C (red), 8 x 7 grid.
+"""Gallery of all structures in an 8 x 7 grid, without labels.
 
-Each AlphaFold model is rendered with PyMOL as a cartoon coloured by residue
-position. Where UniProt TM helices are known (results/topology_summary.tsv),
+Each AlphaFold model is rendered with PyMOL as a cartoon, coloured by Pfam
+family with the same blue/grey shades as the topology map (default), or with
+--color rainbow by residue position, N (blue) -> C (red). Where UniProt TM helices are known (results/topology_summary.tsv),
 the model is rotated so the membrane normal is vertical, cytoplasm at the
 bottom, which makes the transporters directly comparable; otherwise PyMOL's
 default orientation (principal axes) is used.
 
-Panels are ordered by Pfam family, then gene name, and labelled with the gene
-name and UniProt accession.
+Panels are ordered by Pfam family, then gene name; the order is written to
+results/figures/structure_grid_order.tsv.
 
-Outputs: results/renders/<ACC>.png, results/figures/structure_grid.{png,pdf}
-         (with --min-plddt X: renders_plddtX/, structure_grid_plddtX.*)
+Outputs: results/renders_<color>[_plddtX]/<ACC>.png,
+         results/figures/structure_grid[_rainbow][_plddtX].{png,pdf},
+         a colour key (structure_family_key or structure_colour_key)
 
-Usage: python 05_structure_grid.py [--cols 8] [--rows 7] [--min-plddt 0]
+Usage: python 05_structure_grid.py [--color family|rainbow] [--cols 8]
+                                   [--rows 7] [--min-plddt 0]
   --min-plddt X  hides terminal residues with pLDDT < X (long disordered tails
                  can dominate a small panel). Default 0 = show everything.
 """
@@ -28,8 +31,8 @@ import pandas as pd
 import pymol2
 from matplotlib.colors import LinearSegmentedColormap
 
-from common import (FIGURES, RESULTS, STRUCT_DIR, family_colors,
-                    family_label, load_proteins)
+from common import (FAMILY_BLUE_GREY, FIGURES, RESULTS, STRUCT_DIR,
+                    family_label, load_proteins, paper_style)
 
 PX = 900
 
@@ -96,7 +99,7 @@ def trim_termini(cmd, obj, min_plddt):
         cmd.remove(f"{obj} and resi {good[-1] + 1}-{res[-1]}")
 
 
-def render(acc, topo_row, min_plddt, render_dir, force=False):
+def render(acc, topo_row, min_plddt, render_dir, color, force=False):
     out = render_dir / f"{acc}.png"
     if out.exists() and not force:
         return out
@@ -108,7 +111,12 @@ def render(acc, topo_row, min_plddt, render_dir, force=False):
             trim_termini(cmd, "m", min_plddt)
         cmd.hide("everything")
         cmd.show("cartoon")
-        cmd.spectrum("count", "rainbow", "m and name CA")
+        if color == "rainbow":
+            cmd.spectrum("count", "rainbow", "m and name CA")
+        else:
+            h = color.lstrip("#")
+            cmd.set_color("fam", [int(h[k:k + 2], 16) / 255 for k in (0, 2, 4)])
+            cmd.color("fam", "m")
         cmd.set("cartoon_transparency", 0)
         cmd.set("cartoon_fancy_helices", 1)
         cmd.bg_color("white")
@@ -149,12 +157,13 @@ def main():
     ap.add_argument("--cols", type=int, default=8)
     ap.add_argument("--rows", type=int, default=7)
     ap.add_argument("--min-plddt", type=float, default=0)
+    ap.add_argument("--color", choices=["family", "rainbow"], default="family")
     ap.add_argument("--force", action="store_true", help="re-render all")
     args = ap.parse_args()
 
     df = load_proteins()
     df["family"] = df.pfam.map(family_label)
-    fam_order = {f: i for i, f in enumerate(family_colors())}
+    fam_order = {f: i for i, f in enumerate(FAMILY_BLUE_GREY)}
     df = df[[(STRUCT_DIR / f"{a}.pdb").exists() for a in df.Entry]]
     df = (df.assign(fo=df.family.map(fam_order))
           .sort_values(["fo", "gene"]).reset_index(drop=True))
@@ -166,11 +175,16 @@ def main():
               f"{args.cols * args.rows} panels; extra ones are dropped")
 
     tag = f"_plddt{args.min_plddt:g}" if args.min_plddt > 0 else ""
-    render_dir = RESULTS / f"renders{tag}"
+    render_dir = RESULTS / f"renders_{args.color}{tag}"
+    if args.color == "rainbow":
+        tag = "_rainbow" + tag
     render_dir.mkdir(parents=True, exist_ok=True)
     for acc in df.Entry:
         row = topo.loc[acc] if topo is not None and acc in topo.index else None
-        render(acc, row, args.min_plddt, render_dir, args.force)
+        fam = df.loc[df.Entry == acc, "family"].iloc[0]
+        color = ("rainbow" if args.color == "rainbow"
+                 else FAMILY_BLUE_GREY[fam])
+        render(acc, row, args.min_plddt, render_dir, color, args.force)
         print("rendered", acc)
 
     fig, axes = plt.subplots(args.rows, args.cols,
@@ -191,17 +205,29 @@ def main():
         ["row", "col", "gene", "Entry", "Length", "family"]].to_csv(
         FIGURES / "structure_grid_order.tsv", sep="\t", index=False)
 
-    # N -> C colour key as a separate small figure
-    fig = plt.figure(figsize=(1.6, 0.35))
-    cax = fig.add_axes([0.05, 0.55, 0.9, 0.25])
-    cb = fig.colorbar(plt.cm.ScalarMappable(cmap=rainbow_cmap()), cax=cax,
-                      orientation="horizontal", ticks=[0, 1])
-    cb.ax.set_xticklabels(["N", "C"], fontsize=7)
-    cb.ax.tick_params(length=0)
-    cb.outline.set_visible(False)
+    if args.color == "rainbow":
+        # N -> C colour key as a separate small figure
+        fig = plt.figure(figsize=(1.6, 0.35))
+        cax = fig.add_axes([0.05, 0.55, 0.9, 0.25])
+        cb = fig.colorbar(plt.cm.ScalarMappable(cmap=rainbow_cmap()),
+                          cax=cax, orientation="horizontal", ticks=[0, 1])
+        cb.ax.set_xticklabels(["N", "C"], fontsize=7)
+        cb.ax.tick_params(length=0)
+        cb.outline.set_visible(False)
+        key = "structure_colour_key"
+    else:
+        # family colour key as a separate small figure
+        paper_style()
+        present = [f for f in FAMILY_BLUE_GREY if f in set(df.family)]
+        fig = plt.figure(figsize=(1.8, 0.16 * len(present) + 0.1))
+        handles = [plt.Rectangle((0, 0), 1, 1, color=FAMILY_BLUE_GREY[f])
+                   for f in present]
+        fig.legend(handles, present, loc="center left", frameon=False,
+                   fontsize=6.5, handlelength=1.2, handleheight=0.8)
+        key = "structure_family_key"
     for ext in ("png", "pdf"):
-        fig.savefig(FIGURES / f"structure_colour_key.{ext}", dpi=300,
-                    transparent=True)
+        fig.savefig(FIGURES / f"{key}.{ext}", dpi=300, transparent=True,
+                    bbox_inches="tight")
     plt.close(fig)
     print(f"wrote {FIGURES / f'structure_grid{tag}.png'} ({len(df)} structures)")
 
