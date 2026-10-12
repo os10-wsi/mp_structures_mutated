@@ -60,11 +60,37 @@ def family_colors():
     return colors
 
 
-def style_axes(ax):
-    for s in ("top", "right"):
-        ax.spines[s].set_visible(False)
-    for s in ("left", "bottom"):
-        ax.spines[s].set_color(TEXT_2)
-    ax.tick_params(colors=TEXT_2, labelcolor=TEXT_2)
-    ax.yaxis.grid(True, color=GRID, lw=0.8)
-    ax.set_axisbelow(True)
+# Blue/grey shades for Pfam families in the topology map (PFAM_NAMES order)
+FAMILY_BLUE_GREY = {
+    "Sugar_tr (MFS)": "#08306b",
+    "MFS_1": "#2b6cb0",
+    "AA_permease (APC)": "#6aa6d8",
+    "AA_permease_2 (APC)": "#b5d3ef",
+    "SUR7": "#2e2e2e",
+    "Gpr1/Fun34/YaaH": "#636363",
+    "KCH": "#939393",
+    "RTA1": "#bdbdbd",
+    "Other": "#dcdcdc",
+}
+
+# Plain journal style for the summary charts
+GREY = "#8c8c8c"
+GREY_LIGHT = "#d0d0d0"
+INK = "#000000"
+
+
+def paper_style():
+    import matplotlib.pyplot as plt
+    plt.rcParams.update({
+        "font.family": "sans-serif",
+        "font.sans-serif": ["Arial", "Helvetica", "Liberation Sans",
+                            "DejaVu Sans"],
+        "font.size": 8, "axes.labelsize": 8, "xtick.labelsize": 7,
+        "ytick.labelsize": 7, "axes.linewidth": 0.6,
+        "xtick.major.width": 0.6, "ytick.major.width": 0.6,
+        "xtick.major.size": 2.5, "ytick.major.size": 2.5,
+        "axes.edgecolor": INK, "axes.labelcolor": INK, "text.color": INK,
+        "xtick.color": INK, "ytick.color": INK,
+        "axes.spines.top": False, "axes.spines.right": False,
+        "pdf.fonttype": 42, "svg.fonttype": "none",
+    })

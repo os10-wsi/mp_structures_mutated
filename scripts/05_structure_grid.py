@@ -28,7 +28,7 @@ import pandas as pd
 import pymol2
 from matplotlib.colors import LinearSegmentedColormap
 
-from common import (FIGURES, RESULTS, STRUCT_DIR, TEXT, TEXT_2, family_colors,
+from common import (FIGURES, RESULTS, STRUCT_DIR, family_colors,
                     family_label, load_proteins)
 
 PX = 900
@@ -173,40 +173,35 @@ def main():
         render(acc, row, args.min_plddt, render_dir, args.force)
         print("rendered", acc)
 
-    colors = family_colors()
     fig, axes = plt.subplots(args.rows, args.cols,
-                             figsize=(args.cols * 1.9, args.rows * 2.15 + 0.6))
+                             figsize=(args.cols * 1.5, args.rows * 1.5))
     for ax in axes.flat:
         ax.axis("off")
     for ax, r in zip(axes.flat, df.itertuples()):
         ax.imshow(mpimg.imread(render_dir / f"{r.Entry}.png"))
-        ax.set_title(r.gene, fontsize=9, fontweight="bold", color=TEXT, pad=7)
-        ax.text(0.5, -0.02, f"{r.Entry} · {r.Length} aa", ha="center",
-                va="top", transform=ax.transAxes, fontsize=6, color=TEXT_2)
-        ax.add_patch(plt.Rectangle((0.0, 1.0), 1.0, 0.025,
-                                   transform=ax.transAxes, clip_on=False,
-                                   color=colors[r.family], lw=0))
-    fig.subplots_adjust(left=0.01, right=0.99, top=0.95, bottom=0.07,
-                        wspace=0.05, hspace=0.35)
-    fig.suptitle("AlphaFold models of S. cerevisiae membrane proteins",
-                 x=0.01, ha="left", fontsize=13, fontweight="bold", color=TEXT)
-
-    # N -> C colour bar
-    cax = fig.add_axes([0.68, 0.03, 0.28, 0.012])
-    cb = fig.colorbar(plt.cm.ScalarMappable(cmap=rainbow_cmap()), cax=cax,
-                      orientation="horizontal", ticks=[0, 1])
-    cb.ax.set_xticklabels(["N-terminus", "C-terminus"], fontsize=8)
-    cb.outline.set_visible(False)
-    # family colour key (strip above each panel)
-    handles = [plt.Rectangle((0, 0), 1, 1, color=colors[f])
-               for f in colors if f in set(df.family)]
-    fig.legend(handles, [f for f in colors if f in set(df.family)],
-               ncol=3, fontsize=7, frameon=False, loc="lower left",
-               bbox_to_anchor=(0.01, 0.0), title="Pfam family (bar above panel)",
-               title_fontsize=7)
+    fig.subplots_adjust(left=0, right=1, top=1, bottom=0,
+                        wspace=0.02, hspace=0.02)
     FIGURES.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "pdf"):
         fig.savefig(FIGURES / f"structure_grid{tag}.{ext}", dpi=300)
+    plt.close(fig)
+
+    # which protein is in which panel (row-major, from top left)
+    df.assign(row=df.index // args.cols + 1, col=df.index % args.cols + 1)[
+        ["row", "col", "gene", "Entry", "Length", "family"]].to_csv(
+        FIGURES / "structure_grid_order.tsv", sep="\t", index=False)
+
+    # N -> C colour key as a separate small figure
+    fig = plt.figure(figsize=(1.6, 0.35))
+    cax = fig.add_axes([0.05, 0.55, 0.9, 0.25])
+    cb = fig.colorbar(plt.cm.ScalarMappable(cmap=rainbow_cmap()), cax=cax,
+                      orientation="horizontal", ticks=[0, 1])
+    cb.ax.set_xticklabels(["N", "C"], fontsize=7)
+    cb.ax.tick_params(length=0)
+    cb.outline.set_visible(False)
+    for ext in ("png", "pdf"):
+        fig.savefig(FIGURES / f"structure_colour_key.{ext}", dpi=300,
+                    transparent=True)
     plt.close(fig)
     print(f"wrote {FIGURES / f'structure_grid{tag}.png'} ({len(df)} structures)")
 

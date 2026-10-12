@@ -23,15 +23,14 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import numpy as np
 import pandas as pd
 
-from common import (FIGURES, RESULTS, TEXT, TEXT_2, UNIPROT_DIR, family_colors,
-                    family_label, load_proteins, style_axes)
+from common import (FAMILY_BLUE_GREY, FIGURES, GREY, INK, RESULTS, UNIPROT_DIR,
+                    family_label, load_proteins, paper_style)
 
-plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 9,
-                     "axes.titlesize": 11, "axes.titleweight": "bold",
-                     "axes.labelcolor": TEXT_2, "text.color": TEXT})
+paper_style()
 
 
 def side(description):
@@ -87,92 +86,78 @@ def save(fig, name):
 
 
 def length_histogram(df):
-    colors = family_colors()
-    order = list(colors)
     bins = np.arange(250, 901, 50)
-    fig, ax = plt.subplots(figsize=(6.5, 3.6))
-    stacks = [df.loc[df.family == fam, "Length"] for fam in order]
-    ax.hist(stacks, bins=bins, stacked=True, color=[colors[f] for f in order],
-            label=order, edgecolor="white", linewidth=1.5)
+    fig, ax = plt.subplots(figsize=(3.2, 2.2))
+    ax.hist(df.Length, bins=bins, color=GREY, edgecolor="white", linewidth=0.6)
     med = df.Length.median()
     top = ax.get_ylim()[1]
-    ax.set_ylim(0, top * 1.12)
-    ax.axvline(med, ymax=top / (top * 1.12), color=TEXT, lw=1, ls="--")
+    ax.set_ylim(0, top * 1.15)
+    ax.axvline(med, ymax=1 / 1.15, color=INK, lw=0.6, ls="--")
     ax.text(med, top * 1.02, f"median {med:.0f} aa", ha="center",
-            va="bottom", fontsize=8, color=TEXT)
+            va="bottom", fontsize=6.5)
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
     ax.set_xlabel("Protein length (aa)")
     ax.set_ylabel("Number of proteins")
-    ax.set_title(f"Length distribution (n = {len(df)})", loc="left")
-    ax.set_xticks(bins)
-    ax.tick_params(axis="x", labelsize=7)
-    style_axes(ax)
-    ax.legend(title="Pfam family", fontsize=7, title_fontsize=8, frameon=False,
-              bbox_to_anchor=(1.01, 1), loc="upper left")
+    ax.set_xticks(bins[::2])
     save(fig, "length_histogram")
 
 
 def tm_count_plot(df):
     counts = df.n_tm.value_counts().sort_index()
-    fig, ax = plt.subplots(figsize=(5, 3.2))
-    ax.bar(counts.index, counts.values, color="#2a78d6", width=0.7)
-    for x, y in counts.items():
-        ax.text(x, y + 0.2, str(y), ha="center", va="bottom", fontsize=8,
-                color=TEXT)
-    ax.set_xticks(range(0, int(counts.index.max()) + 1))
-    ax.set_xlabel("Number of transmembrane helices (UniProt)")
+    fig, ax = plt.subplots(figsize=(3.2, 2.2))
+    ax.bar(counts.index, counts.values, color=GREY, width=0.75)
+    ax.set_xticks(range(1, int(counts.index.max()) + 1))
+    ax.yaxis.set_major_locator(MaxNLocator(integer=True))
+    ax.set_xlabel("Number of transmembrane helices")
     ax.set_ylabel("Number of proteins")
-    ax.set_title("Transmembrane helix count", loc="left")
-    style_axes(ax)
     save(fig, "tm_count")
 
 
 def topology_class_plot(classes):
-    fig, ax = plt.subplots(figsize=(6, 0.28 * len(classes) + 1))
+    fig, ax = plt.subplots(figsize=(3.6, 0.17 * len(classes) + 0.6))
     y = np.arange(len(classes))[::-1]
-    ax.barh(y, classes["n_proteins"], color="#2a78d6", height=0.7)
+    ax.barh(y, classes["n_proteins"], color=GREY, height=0.7)
     for yi, (n, genes) in zip(y, zip(classes["n_proteins"], classes["genes"])):
-        ax.text(n + 0.3, yi, textwrap.fill(genes, 90), va="center",
-                fontsize=5.5 if len(genes) > 90 else 6.5, color=TEXT_2,
+        ax.text(n + 0.4, yi, textwrap.fill(genes, 60), va="center",
+                fontsize=4.5 if len(genes) > 60 else 5.5, color="#555555",
                 linespacing=1.0)
-    ax.set_yticks(y, classes["topology"])
+    ax.set_yticks(y, classes["topology"].str.replace(" | ", ", ",
+                                                     regex=False))
+    ax.tick_params(axis="y", length=0)
+    ax.spines["left"].set_visible(False)
     ax.set_xlabel("Number of proteins")
-    ax.set_title(f"{len(classes)} distinct transmembrane topologies",
-                 loc="left")
-    style_axes(ax)
-    ax.yaxis.grid(False)
-    ax.xaxis.grid(True, color="#e4e3df", lw=0.8)
     ax.set_xlim(0, classes.n_proteins.max() * 1.05)
     save(fig, "topology_classes")
 
 
 def topology_map(df):
-    """One track per protein: sequence line, TM helices as boxes, termini sides."""
-    d = df.sort_values(["family", "n_tm", "Length"]).reset_index(drop=True)
-    colors = family_colors()
-    fig, ax = plt.subplots(figsize=(8, 0.17 * len(d) + 1))
+    """One track per protein: sequence line with TM helices as boxes,
+    coloured by Pfam family in shades of blue and grey."""
+    order = {f: i for i, f in enumerate(FAMILY_BLUE_GREY)}
+    d = (df.assign(fo=df.family.map(order))
+         .sort_values(["fo", "n_tm", "Length"]).reset_index(drop=True))
+    fig, ax = plt.subplots(figsize=(4.5, 0.11 * len(d) + 0.5))
     for i, r in d.iterrows():
         y = len(d) - i
-        ax.plot([1, r.Length], [y, y], color="#c3c2b7", lw=1, solid_capstyle="butt")
+        ax.plot([1, r.Length], [y, y], color="#ececec", lw=0.6,
+                solid_capstyle="butt", zorder=1)
         for seg in filter(None, r.tm_segments.split(";")):
             s, e = map(int, seg.split("-"))
-            ax.add_patch(plt.Rectangle((s, y - 0.35), e - s + 1, 0.7,
-                                       color=colors[r.family], lw=0))
-        ax.text(-10, y, f"{r.gene}", ha="right", va="center", fontsize=6.5)
-        last = max([r.Length] + [int(x.split("-")[1]) for x in
-                                 filter(None, r.tm_segments.split(";"))])
-        ax.text(last + 10, y, f"{r.n_tm} TM  N-{r.n_term}/C-{r.c_term}",
-                va="center", fontsize=5.5, color=TEXT_2)
-    ax.set_xlim(-120, d.Length.max() + 160)
+            ax.add_patch(plt.Rectangle((s, y - 0.32), e - s + 1, 0.64,
+                                       color=FAMILY_BLUE_GREY[r.family],
+                                       lw=0, zorder=2))
+    ax.set_yticks(range(len(d), 0, -1), d.gene, fontsize=5)
+    ax.tick_params(axis="y", length=0)
+    ax.set_xlim(0, d.Length.max() + 10)
     ax.set_ylim(0.3, len(d) + 0.7)
-    ax.set_yticks([])
     ax.set_xlabel("Residue")
-    for s in ("top", "right", "left"):
-        ax.spines[s].set_visible(False)
-    handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in colors.values()]
-    ax.legend(handles, colors.keys(), title="TM helices by Pfam family",
-              fontsize=6.5, title_fontsize=7, frameon=False,
-              bbox_to_anchor=(1.0, 1.0), loc="upper left")
-    ax.set_title("Transmembrane topology map (UniProt)", loc="left")
+    ax.spines["left"].set_visible(False)
+    present = [f for f in FAMILY_BLUE_GREY if f in set(d.family)]
+    handles = [plt.Rectangle((0, 0), 1, 1, color=FAMILY_BLUE_GREY[f])
+               for f in present]
+    ax.legend(handles, present, fontsize=5.5, frameon=False,
+              handlelength=1.2, handleheight=0.8, loc="upper left",
+              bbox_to_anchor=(1.0, 1.0))
     save(fig, "topology_map")
 
 
