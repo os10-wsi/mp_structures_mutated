@@ -36,24 +36,41 @@ foldseek easy-search data/structures/*.pdb foldseek_domainome_db foldseek_easy_a
   --format-output "query,target,alntmscore,qtmscore,ttmscore,prob" --exhaustive-search 1 -e inf
 ```
 Edges are Foldseek hit probabilities. Each edge takes the mean of the two
-search directions, self-hits are removed, and the default cutoff is
-`--min-prob 0.5`. Nodes are coloured by Pfam family.
+search directions, and self-hits are removed. As in the paper, all hits are
+kept as edges (`--min-prob 0.01`). Clusters are reported at `--cluster-prob
+0.5` in `results/network/clusters.txt`. Nodes are coloured by class, in the
+style of the Domainome figure:
+- MFS fold (Sugar_tr, MFS_1)
+- LeuT fold (APC: AA_permease, AA_permease_2, SSS/DUR3, NCS1/FUR4)
+- other proteins with ≥ 8 TM
+- proteins with ≤ 7 TM
+
+`similarity_network` has cluster labels and class counts;
+`similarity_network_nolabels` has no text.
 
 - **Gephi, as in the paper:** open `results/network/similarity_network.gexf`.
   Run Layout → *Fruchterman Reingold* until the layout stops moving, then
   *ForceAtlas 2* with *Prevent Overlap* ticked. The file already stores
-  colours, sizes and a starting layout.
+  colours and a starting layout.
 - **Python:** the script runs the same two steps with networkx
   (`spring_layout` = Fruchterman-Reingold, then `forceatlas2_layout`, then
-  a pass that pushes overlapping nodes apart) and saves the figure.
+  a pass that pushes overlapping nodes apart). For the layout, edge weights
+  are probability cubed, so the many weak hits don't smear the clusters
+  together.
 
 ### Structure gallery
 PyMOL cartoon coloured with `spectrum count, rainbow`: blue at the N-terminus,
-red at the C-terminus. When UniProt TM helices are known, each model is rotated
-so the membrane normal is vertical, with the cytoplasm at the bottom. Panels
-are grouped by Pfam family, and each has a coloured bar above it. Long
-disordered tails can make a model look small in its panel; use
-`--min-plddt 50` to hide low-confidence termini.
+red at the C-terminus. The grid has no labels; panels are in row-major order
+and listed in `results/figures/structure_grid_order.tsv`. The N→C colour key
+is a separate file, `structure_colour_key`. When UniProt TM helices are
+known, each model is rotated so the membrane normal is vertical, with the
+cytoplasm at the bottom. Long disordered tails can make a model look small in
+its panel; use `--min-plddt 50` to hide low-confidence termini.
+
+### Charts
+The length, TM-count and topology-class charts are plain grey. In the
+topology map, TM helices are coloured by Pfam family in shades of blue (the
+transporter families) and grey (the rest).
 
 Set `MP_DATA` / `MP_RESULTS` to use other input and output directories.
 
@@ -66,7 +83,7 @@ Set `MP_DATA` / `MP_RESULTS` to use other input and output directories.
   N-out/C-in (6), then five classes of 3 proteins each. These are UniProt's
   sequence-based annotations: an MFS protein listed with 11 or 13 TM probably
   has one helix missed or split.
-- **Structural similarity network** (prob ≥ 0.5, 310 edges, 15 components):
+- **Structural similarity network** (789 edges at prob ≥ 0.01; 15 clusters at prob ≥ 0.5):
   - MFS: Sugar_tr + MFS_1, 22 proteins.
   - LeuT fold: APC permeases + DUR3 + FUR4, with BOR1 joined by a single
     weak edge, 13 proteins.

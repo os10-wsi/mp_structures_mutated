@@ -8,7 +8,7 @@ mean of the two search directions; self-hits removed). The script
      probability, and pre-computed positions/colours so it opens ready-laid-out;
   2. reproduces the Gephi layout in Python — Fruchterman-Reingold to
      equilibrium, then ForceAtlas2, then an overlap-removal pass — and
-     draws results/figures/similarity_network.{png,pdf};
+     draws results/figures/similarity_network{,_nolabels}.{png,pdf};
   3. writes the probability matrix (results/network/prob_matrix.tsv) and the
      node / edge tables.
 
@@ -16,7 +16,8 @@ For the Gephi route from the paper: File > Open the .gexf, Layout >
 Fruchterman Reingold (run until stable), then Layout > ForceAtlas 2 with
 "Prevent Overlap" ticked.
 
-Usage: python 04_similarity_network.py [--min-prob 0.5] [--seed 7]
+Usage: python 04_similarity_network.py [--min-prob 0.01] [--cluster-prob 0.5]
+                                       [--seed 7]
 """
 import argparse
 
@@ -28,8 +29,7 @@ import networkx as nx
 import numpy as np
 import pandas as pd
 
-from common import (FIGURES, RESULTS, TEXT, TEXT_2, family_colors,
-                    family_label, load_proteins)
+from common import FIGURES, RESULTS, family_label, load_proteins
 
 FS_OUT = RESULTS / "foldseek" / "foldseek_easy_allvsall"
 NET_DIR = RESULTS / "network"
@@ -89,64 +89,120 @@ def prevent_overlap(pos, radii, iters=500):
 
 
 def layout(G, radii, seed):
+    # Layout weight = probability cubed, so the many weak (<0.1) hits only
+    # nudge nodes while confident hits pull families into tight clusters.
+    H = nx.Graph()
+    H.add_nodes_from(G)
+    H.add_weighted_edges_from((u, v, w ** 3)
+                              for u, v, w in G.edges(data="weight"))
     # Fruchterman-Reingold to (near) equilibrium
-    pos = nx.spring_layout(G, weight="weight", iterations=2000,
+    pos = nx.spring_layout(H, weight="weight", iterations=2000,
                            threshold=1e-6, seed=seed)
     # ForceAtlas2 from the FR positions; gravity keeps unconnected nodes near
-    pos = nx.forceatlas2_layout(G, pos=pos, weight="weight", max_iter=3000,
+    pos = nx.forceatlas2_layout(H, pos=pos, weight="weight", max_iter=3000,
                                 scaling_ratio=2.0, gravity=10.0, seed=seed)
     # networkx's node_size option is numerically unstable here, so
     # overlap is removed as a separate step
     return prevent_overlap(pos, radii)
 
 
-def draw(G, pos, nodes, colors, min_prob):
-    fig, ax = plt.subplots(figsize=(9, 8))
-    edges = sorted(G.edges(data="weight"), key=lambda e: e[2])
-    for u, v, w in edges:
+# Colour classes, in the spirit of the SCOP-class colouring in the Domainome
+# network: two transporter folds by Pfam, the rest split by TM count.
+FOLD_PFAMS = {
+    "MFS fold": {"PF00083", "PF07690"},
+    "LeuT fold (APC)": {"PF00324", "PF13520", "PF00474", "PF02133"},
+}
+CLASS_COLORS = {
+    "MFS fold": "#d7262b",
+    "LeuT fold (APC)": "#2c3a96",
+    "Other, ≥8 TM": "#a3a6dc",
+    "≤7 TM": "#efa63a",
+}
+SHORT_PFAM = {
+    "PF00083": "Sugar_tr", "PF07690": "MFS_1", "PF00324": "AA_permease",
+    "PF13520": "AA_permease_2", "PF06687": "SUR7", "PF01184": "Gpr1/Fun34",
+    "PF16944": "KCH", "PF04479": "RTA1",
+}
+
+
+def fold_class(r):
+    for name, pfams in FOLD_PFAMS.items():
+        if r.pfam in pfams:
+            return name
+    return "Other, ≥8 TM" if r.n_tm >= 8 else "≤7 TM"
+
+
+def draw(G, strong, pos, nodes, labels=True, suffix=""):
+    plt.rcParams.update({"font.family": "sans-serif",
+                         "font.sans-serif": ["Arial", "Helvetica",
+                                             "Liberation Sans", "DejaVu Sans"],
+                         "pdf.fonttype": 42})
+    fig, ax = plt.subplots(figsize=(6, 6))
+    col = {n: CLASS_COLORS[c] for n, c in nodes["fold_class"].items()}
+    for u, v, w in sorted(G.edges(data="weight"), key=lambda e: e[2]):
         (x0, y0), (x1, y1) = pos[u], pos[v]
-        ax.plot([x0, x1], [y0, y1], color="#8a8983",
-                lw=0.2 + 1.2 * w, alpha=0.08 + 0.4 * w, zorder=1)
-    sizes = 30 + 0.25 * nodes.Length
+        ax.plot([x0, x1], [y0, y1], color=col[u], lw=0.15 + 0.6 * w,
+                alpha=0.05 + 0.35 * w, zorder=1, solid_capstyle="round")
     xy = np.array([pos[n] for n in nodes.index])
-    ax.scatter(xy[:, 0], xy[:, 1], s=sizes,
-               c=[colors[f] for f in nodes.family],
-               edgecolors="white", linewidths=1.2, zorder=2)
-    span = np.ptp(xy, axis=0).max()
-    for (x, y), gene, s in zip(xy, nodes.gene, sizes):
-        ax.text(x, y + span * 0.012 + np.sqrt(s) * span / 900, gene,
-                ha="center", va="bottom", fontsize=6.5, color=TEXT, zorder=3)
+    ax.scatter(xy[:, 0], xy[:, 1], s=26, c=[col[n] for n in nodes.index],
+               linewidths=0, zorder=2)
     ax.set_aspect("equal")
     ax.axis("off")
-    present = [f for f in colors if f in set(nodes.family)]
-    handles = [plt.Line2D([], [], marker="o", ls="", ms=7, color=colors[f])
-               for f in present]
-    leg = ax.legend(handles, present, title="Pfam family", frameon=False,
-                    fontsize=7.5, title_fontsize=8,
-                    bbox_to_anchor=(1.0, 1.0), loc="upper left")
-    leg.get_title().set_color(TEXT)
-    ax.set_title("Structural similarity network (Foldseek)", loc="left",
-                 fontsize=12, fontweight="bold", color=TEXT, pad=16)
-    ax.text(0, 1.0, f"edges: hit probability ≥ {min_prob:g} "
-            f"(width ∝ probability); node size ∝ length",
-            transform=ax.transAxes, fontsize=7.5, color=TEXT_2, va="bottom")
+    pad = 0.08
+    ax.set_xlim(xy[:, 0].min() - pad, xy[:, 0].max() + pad)
+    ax.set_ylim(xy[:, 1].min() - pad, xy[:, 1].max() + pad)
+    if labels:
+        # one label per cluster (connected component of confident hits)
+        centre = xy.mean(0)
+        for comp in nx.connected_components(strong):
+            if len(comp) < 2:
+                continue
+            grp = nodes.loc[sorted(comp)]
+            top = grp.fold_class.value_counts().index[0]
+            if top in FOLD_PFAMS:
+                name = top
+            else:
+                name = "/".join(SHORT_PFAM[p] for p in
+                                grp.pfam.value_counts().index
+                                if p in SHORT_PFAM)
+            # place by the cluster core so a weakly attached member
+            # (e.g. BOR1) does not drag the label away
+            pts = np.array([pos[n] for n in comp])
+            c = np.median(pts, axis=0)
+            out = c - centre
+            out = out / (np.linalg.norm(out) or 1)
+            radius = np.percentile(np.linalg.norm(pts - c, axis=1), 80)
+            x, y = c + out * (radius + 0.06)
+            ax.text(x, y, f"{name}\n({len(comp)})", ha="center",
+                    va="center", fontsize=7, linespacing=1.1, zorder=3)
+        counts = nodes.fold_class.value_counts()
+        lines = [f"{len(nodes)} proteins"] + [
+            f"{c} ({counts.get(c, 0)})" for c in CLASS_COLORS]
+        cols = ["black"] + list(CLASS_COLORS.values())
+        for k, (t, c) in enumerate(zip(lines, cols)):
+            ax.text(0.0, 1.0 - k * 0.035, t, color=c, fontsize=7.5,
+                    transform=ax.transAxes, va="top")
     FIGURES.mkdir(parents=True, exist_ok=True)
     for ext in ("png", "pdf"):
-        fig.savefig(FIGURES / f"similarity_network.{ext}", dpi=300,
+        fig.savefig(FIGURES / f"similarity_network{suffix}.{ext}", dpi=300,
                     bbox_inches="tight")
     plt.close(fig)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--min-prob", type=float, default=0.5,
-                    help="minimum symmetrised Foldseek probability for an edge")
+    ap.add_argument("--min-prob", type=float, default=0.01,
+                    help="minimum symmetrised Foldseek probability for an "
+                         "edge in the network (the paper used all of them)")
+    ap.add_argument("--cluster-prob", type=float, default=0.5,
+                    help="probability threshold for reporting clusters")
     ap.add_argument("--seed", type=int, default=7)
     args = ap.parse_args()
 
     hits = load_hits()
     ids = sorted(set(hits["query"]) | set(hits["target"]))
     nodes = node_table(ids)
+    nodes["fold_class"] = nodes.apply(fold_class, axis=1)
     prob = symmetric(hits, "prob", ids)
     tm = symmetric(hits, "alntmscore", ids)
 
@@ -154,45 +210,50 @@ def main():
     labelled = prob.rename(index=nodes.gene, columns=nodes.gene)
     labelled.to_csv(NET_DIR / "prob_matrix.tsv", sep="\t", float_format="%.3f")
 
-    colors = family_colors()
     G = nx.Graph()
     for acc, r in nodes.iterrows():
         G.add_node(acc, label=r.gene, family=r.family, pfam=r.pfam,
-                   length=int(r.Length), n_tm=int(r.n_tm),
-                   topology=str(r.topology))
+                   fold_class=r.fold_class, length=int(r.Length),
+                   n_tm=int(r.n_tm), topology=str(r.topology))
     iu = np.triu_indices(len(ids), k=1)
     for i, j in zip(*iu):
         p = prob.values[i, j]
         if p >= args.min_prob:
             G.add_edge(ids[i], ids[j], weight=float(p),
                        alntmscore=float(tm.values[i, j]))
+    strong = nx.Graph([(u, v) for u, v, w in G.edges(data="weight")
+                       if w >= args.cluster_prob])
+    strong.add_nodes_from(G)
     print(f"{G.number_of_nodes()} nodes, {G.number_of_edges()} edges "
-          f"(prob >= {args.min_prob}), "
-          f"{nx.number_connected_components(G)} connected components")
+          f"(prob >= {args.min_prob}); "
+          f"{nx.number_connected_components(strong)} clusters at prob >= "
+          f"{args.cluster_prob}")
 
-    radii = {n: 0.028 + 0.00002 * nodes.loc[n, "Length"] for n in G}
+    radii = {n: 0.011 for n in G}
     pos = layout(G, radii, args.seed)
-    draw(G, pos, nodes, colors, args.min_prob)
+    draw(G, strong, pos, nodes, labels=True)
+    draw(G, strong, pos, nodes, labels=False, suffix="_nolabels")
 
     # Gephi export with positions and colours baked in
     for n in G:
-        h = colors[G.nodes[n]["family"]].lstrip("#")
+        h = CLASS_COLORS[G.nodes[n]["fold_class"]].lstrip("#")
         r, g, b = (int(h[k:k + 2], 16) for k in (0, 2, 4))
         G.nodes[n]["viz"] = {
             "position": {"x": float(pos[n][0] * 1000),
                          "y": float(pos[n][1] * 1000), "z": 0.0},
             "color": {"r": r, "g": g, "b": b, "a": 1.0},
-            "size": float(5 + nodes.loc[n, "Length"] / 50)}
+            "size": 10.0}
     nx.write_gexf(G, NET_DIR / "similarity_network.gexf")
     nx.to_pandas_edgelist(G).rename(columns={"source": "Source",
                                              "target": "Target",
                                              "weight": "Weight"}) \
         .to_csv(NET_DIR / "edges.csv", index=False)
     nodes.assign(Id=nodes.index, Label=nodes.gene)[
-        ["Id", "Label", "family", "pfam", "Length", "n_tm", "topology"]] \
-        .to_csv(NET_DIR / "nodes.csv", index=False)
-    comps = sorted(nx.connected_components(G), key=len, reverse=True)
+        ["Id", "Label", "family", "pfam", "fold_class", "Length", "n_tm",
+         "topology"]].to_csv(NET_DIR / "nodes.csv", index=False)
+    comps = sorted(nx.connected_components(strong), key=len, reverse=True)
     with open(NET_DIR / "clusters.txt", "w") as fh:
+        fh.write(f"# connected components at prob >= {args.cluster_prob}\n")
         for k, c in enumerate(comps, 1):
             fh.write(f"cluster {k} ({len(c)}): "
                      + ", ".join(sorted(nodes.loc[list(c), "gene"])) + "\n")
